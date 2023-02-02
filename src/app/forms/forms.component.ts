@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GenericForm  } from '../models/generic-form';
+import { GenericForm  } from '../models/generic-form.model';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 

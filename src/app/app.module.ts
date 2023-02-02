@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsComponent } from './forms/forms.component';
 import { StoreModule } from '@ngrx/store';
 import { PageTitleComponent } from './page-title/page-title.component';
+import { GenericFormComponent } from './generic-form/generic-form.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PageTitleComponent } from './page-title/page-title.component';
     HomeComponent,
     NavbarComponent,
     FormsComponent,
-    PageTitleComponent
+    PageTitleComponent,
+    GenericFormComponent
     ],
   imports: [
     FormsModule,

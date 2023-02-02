@@ -1,6 +1,4 @@
 <app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
-
-<h3>Forms</h3>
 <div class="container">
     <table>  
         <tr>
@@ -9,7 +7,8 @@
         </tr>
         <tr *ngFor="let form of forms">
             <td>{{form.name}}</td>
-            <td routerLink="/generic-form/{{form.id}}">{{form.id}}</td>
+            <td routerLink="/form/{{form.id}}">{{form.id}}</td>
         </tr>
     </table>
 </div>
+

@@ -1,0 +1,8 @@
+<app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
+<div class="container" id="g-form-container">
+    <div id="g-form-fields" *ngFor="let field of formFields">
+        <label for="fieldName">{{field[0]}} </label>
+        <input id="name" [(ngModel)]="field[1]" placeholder="name">
+      </div>
+      <button (click)="onSubmit()">Submit</button>
+    </div>
