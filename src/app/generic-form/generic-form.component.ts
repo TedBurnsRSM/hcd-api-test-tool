@@ -11,7 +11,6 @@ import { GenericForm } from '../models/generic-form.model';
 })
 
 export class GenericFormComponent extends ContentPage implements OnInit {
-  // public selectedForm: GenericForm;
   private forms: GenericForm[] = [
     {
       id: "ab889hf89", 
@@ -23,8 +22,7 @@ export class GenericFormComponent extends ContentPage implements OnInit {
   ];
 
   public formFields: [string, string][] = []; 
-
- 
+  
   public formData: FormGroup = new FormGroup({});
 
   constructor(private route: ActivatedRoute)  {
@@ -50,7 +48,11 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     }
  }
 
-  onSubmit() {}
+  onSubmit() {
+
+
+    
+  }
   
   }
 

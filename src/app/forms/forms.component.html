@@ -1,14 +1,18 @@
 <app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
 <div class="container">
-    <table>  
+    <table class="table">
+        <thead class="table-dark" id="t-forms-header">
         <tr>
             <th>Name</th>
-            <th>ID</th>
+            <th>Edit</th>
         </tr>
+        </thead>
+        <tbody>
         <tr *ngFor="let form of forms">
-            <td>{{form.name}}</td>
-            <td routerLink="/form/{{form.id}}">{{form.id}}</td>
+            <td routerLink="/form/{{form.id}}">{{form.name}}</td>
+            <td>Edit</td>
         </tr>
+    </tbody>
     </table>
 </div>
 
