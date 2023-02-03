@@ -48,9 +48,9 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     }
  }
 
-  onSubmit() {
-
-
+  onSubmit(values: string[]) {
+    console.log("submitted");
+    
     
   }
   

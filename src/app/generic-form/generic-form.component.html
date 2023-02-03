@@ -1,11 +1,15 @@
 <app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
-<form>
-<div class="form-group">
-    <div id="g-form-fields" *ngFor="let field of formFields;">
-        <label for="fieldName">{{field[0]}} </label>
-        <input id="name" [(ngModel)]="field[1]" placeholder="name">
-      </div>
-  </div>
-  </form>
-      
-      <button>Submit</button>
+
+<div name="formContainer">
+<form> 
+  <table>
+  <tr class="form-group mb-2" name="g-form" *ngFor="let field of formFields; let i = index;">
+    <td><label  for={{field[0]}}>{{field[0]}}</label></td>
+    <td><input name = "{{field[0]}}" id={{i}} [(ngModel)]="field[1]" placeholder={{field[1]}}></td>
+  </tr>
+  <td></td>
+  <tr><td>  <button class="btn btn-dark" type="submit">Submit</button>
+  </td></tr>
+  </table>
+</form>
+</div>
