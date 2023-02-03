@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+1) Create abstract class for componenets to handle metadata
+2) profit.

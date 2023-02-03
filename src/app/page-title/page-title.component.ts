@@ -9,7 +9,6 @@ export class PageTitleComponent implements OnChanges{
   @Input() title: string = "";
   @Output() titleChanged: EventEmitter<string> = new EventEmitter<string>();
   constructor() { 
-    //service call goes here
   }
   ngOnChanges(){
     console.log(this.title);
