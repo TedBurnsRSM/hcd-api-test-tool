@@ -51,7 +51,7 @@ export class GenericFormComponent extends ContentPage implements OnInit {
  }
 
   onSubmit() {}
-
+  
   }
 
   
