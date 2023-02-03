@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ContentPage } from '../models/content-page';
 import { GenericForm } from '../models/generic-form.model';
 
 @Component({
@@ -9,8 +10,7 @@ import { GenericForm } from '../models/generic-form.model';
   styleUrls: ['./generic-form.component.css']
 })
 
-export class GenericFormComponent implements OnInit {
-  // public selectedForm: GenericForm;
+export class GenericFormComponent extends ContentPage implements OnInit {
   private forms: GenericForm[] = [
     {
       id: "ab889hf89", 
@@ -22,13 +22,11 @@ export class GenericFormComponent implements OnInit {
   ];
 
   public formFields: [string, string][] = []; 
-  title:string="";
- 
+  
   public formData: FormGroup = new FormGroup({});
 
-  constructor(private route: ActivatedRoute) {
-
-    this.formFields = []; 
+  constructor(private route: ActivatedRoute)  {
+    super();
     this.title = "";
    }
 
@@ -50,14 +48,12 @@ export class GenericFormComponent implements OnInit {
     }
  }
 
- 
- updateTitle(value: string) {
-  console.log(`updateTitle: ${value}`);
-  this.title = value;
-}
+  onSubmit() {
 
-  onSubmit() {}
 
+    
+  }
+  
   }
 
   
