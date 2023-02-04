@@ -2,11 +2,12 @@
 
 <app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
 <div class="card">
-  <form> 
+  <form (ngSubmit)="onSubmit()" #gForm="ngForm"> 
     <div class="row" class="form-group mb-2" name="g-form" *ngFor="let field of formFields; let i = index;">
       <div class="col-sm"><label  for={{field[0]}}>{{field[0]}}</label></div>
-      <div class="col-sm"><input name = "{{field[0]}}" [(ngModel)]="field[1]" placeholder={{field[1]}}></div>
+      <div class="col-sm"><input name = {{field[0]}} [(ngModel)]="formFields[i][0]" placeholder={{field[1]}}></div>
     </div>
-      <button class="btn btn-secondary" type="submit">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!gForm.form.valid">Submit</button>
   </form>
 </div>
+
