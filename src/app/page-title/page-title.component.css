@@ -1,11 +1,6 @@
-.content {
-    flex-wrap: wrap;
-    text-align: center;
-    padding: .8%;
-    color: #212529;
-}
-
 .card {
-    background-color: #4f5964;
-    color: white
+    align-items: center;
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: .5%;
 }

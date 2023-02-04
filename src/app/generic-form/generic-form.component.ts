@@ -15,10 +15,10 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     {
       id: "ab889hf89", 
       name: "Contact Us",
-      fields: [["first_name", "ted"], ["last_name", "burns"], ["phone_number", "412-606-7377"], ["comments", "I drove on a road today"]]},
+      fields: [["Last Name", "Ted"], ["First Name", "Burns"], ["Phone Number", "412-606-7377"], ["Comments", "I drove on a road today"]]},
     {id: "ab897hgd9", 
     name: "Weight Class Dispute",
-     fields: [["dispute_id", "#43fda"], ["first_name", "ted"], ["last_name", "burns"], ["phone_number", "412-606-7377"], ["license_no", "NJd3fdsau"], ["Date of Incident", "12/04/2021"]]}
+     fields: [["Dispute ID", "#43fda"], ["First Name", "Ted"], ["Last Name", "Burns"], ["Phone Number", "412-606-7377"], ["License No.", "NJd3fdsau"], ["Incident Date", "12/04/2021"]]}
   ];
 
   public formFields: [string, string][] = []; 
