@@ -15,11 +15,27 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     {
       id: "ab889hf89", 
       name: "Contact Us",
-      fields: [["Last Name", "Ted"], ["First Name", "Burns"], ["Phone Number", "412-606-7377"], ["Comments", "I drove on a road today"]]},
-    {id: "ab897hgd9", 
-    name: "Weight Class Dispute",
-     fields: [["Dispute ID", "#43fda"], ["First Name", "Ted"], ["Last Name", "Burns"], ["Phone Number", "412-606-7377"], ["License No.", "NJd3fdsau"], ["Incident Date", "12/04/2021"]]}
+      fields: [
+        ["First Name", "Ted"], 
+        ["Last Name", "Burns"], 
+        ["Phone Number", "412-606-7377"], 
+        ["Comments", "I drove on a road today"]]
+    },
+    {
+      id: "ab897hgd9", 
+      name: "Public Speaker Request",
+      fields: [
+        ["First Name", "Ted"], 
+        ["Last Name", "Burns"], 
+        ["Event Date", "10/12/2024"], 
+        ["Location", "Pittsburgh, PA"],
+        ["Special Requests", "None"]]
+    },
   ];
+
+  public test: any 
+
+  public submitted: boolean = false;
 
   public formFields: [string, string][] = []; 
   
@@ -48,12 +64,13 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     }
  }
 
-  onSubmit(values: string[]) {
-    console.log("submitted");
-    
-    
+  onSubmit() { 
+    this.submitted = true; 
+    console.log(this.formFields[0][0] + ' : ' + this.formFields[0][1]);
+    console.log(this.formFields[1][0] + ' : ' + this.formFields[1][1]);
+
   }
-  
+
   }
 
   
