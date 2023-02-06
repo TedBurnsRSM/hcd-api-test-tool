@@ -41,6 +41,7 @@ export class GenericFormComponent extends ContentPage implements OnInit {
   
   public formData: FormGroup = new FormGroup({});
 
+  public formResponse: [string, string][] = [];
   public router: Router;
 
   constructor(private route: ActivatedRoute)  {
@@ -71,8 +72,9 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     this.submitted = true; 
     console.log(this.formFields[0][0] + ' : ' + this.formFields[0][1]);
     console.log(this.formFields[1][0] + ' : ' + this.formFields[1][1]);
+    this.formResponse = this.formFields;
+    
 
-    this.router.navigate(['http:localhost:4200/response'])
   }
 
   }

@@ -12,8 +12,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'form/:id', component: GenericFormComponent },
-  { path: 'response', component: ResponseComponent }
-
 ];
 
 @NgModule({
