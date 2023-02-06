@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GenericForm  } from '../models/generic-form.model';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ContentPage } from '../models/content-page';
+import { FormsService } from '../forms.service';
 
 
 @Component({
@@ -13,15 +14,16 @@ export class FormsComponent extends ContentPage implements OnInit {
   constructor() {
     super();
     this.title = "Forms";
+    this.formsService = new FormsService(); 
   }
 
+  public formsService: FormsService;
 
-  public forms: GenericForm[] = [
-    {id: "ab889hf89", name: "Contact Us", fields: []},
-    {id: "ab897hgd9", name: "Public Speaker Request", fields: []}
-  ];
 
-  ngOnInit() {
+  public forms: GenericForm[] = [];
 
+  async ngOnInit() {
+    let forms = await this.formsService.getForms();
+    this.forms.push(...forms);
   }
 }

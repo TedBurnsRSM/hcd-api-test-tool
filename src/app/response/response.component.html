@@ -1,1 +1,7 @@
-<p>{{responseContent}}</p>
+<div class="card" *ngIf="responseContent.length > 1">
+    <h6>Response</h6>
+    <div class="row" *ngFor="let form of responseContent">
+        <div class="col-sm">
+        Field: {{form[0]}} Value: {{form[1]}}
+    </div>
+</div>

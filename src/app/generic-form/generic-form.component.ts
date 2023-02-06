@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router} from '@angular/router';
 import { ContentPage } from '../models/content-page';
 import { GenericForm } from '../models/generic-form.model';
+import { FormsService } from '../forms.service';
 
 @Component({
   selector: 'app-generic-form',
@@ -11,70 +12,52 @@ import { GenericForm } from '../models/generic-form.model';
 })
 
 export class GenericFormComponent extends ContentPage implements OnInit {
-  private forms: GenericForm[] = [
-    {
-      id: "ab889hf89", 
-      name: "Contact Us",
-      fields: [
-        ["First Name", "Ted"], 
-        ["Last Name", "Burns"], 
-        ["Phone Number", "412-606-7377"], 
-        ["Comments", "I drove on a road today"]]
-    },
-    {
-      id: "ab897hgd9", 
-      name: "Public Speaker Request",
-      fields: [
-        ["First Name", "Ted"], 
-        ["Last Name", "Burns"], 
-        ["Event Date", "10/12/2024"], 
-        ["Location", "Pittsburgh, PA"],
-        ["Special Requests", "None"]]
-    },
-  ];
+  private forms: GenericForm[] = [];
 
-  public test: any 
+  public formsService: FormsService;
 
   public submitted: boolean = false;
 
   public formFields: [string, string][] = []; 
   
-  public formData: FormGroup = new FormGroup({});
 
   public formResponse: [string, string][] = [];
   public router: Router;
 
   constructor(private route: ActivatedRoute)  {
-    super();
-    this.title = "";
-    this.router = new Router();
+  super();
+  this.title = "";
+  this.router = new Router();
+  this.formsService = new FormsService();
    }
 
 
- ngOnInit() {
-    let formId: string; 
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      formId = params.get('id') || "";
-    });
+ async ngOnInit() {
+  let allForms  = await this.formsService.getForms();
+  this.forms.push(...allForms);
 
-    let selectedForm = this.forms.filter(function (item) {
-      return item.id === formId;
-    })[0] || {id: "", name: "", fields: []};
 
-    this.title = selectedForm.name;
+  let formId: string; 
+  this.route.paramMap.subscribe((params: ParamMap) => {
+    formId = params.get('id') || "";
+  });
 
-    for(let field of selectedForm.fields) {
-      this.formFields.push(field);
-    }
+  let selectedForm = this.forms.filter(function (item) {
+    return item.id === formId;
+  })[0] || {id: "", name: "", fields: []};
+
+  this.title = selectedForm.name;
+
+  for(let field of selectedForm.fields) {
+    this.formFields.push(field);
+  }
  }
 
   onSubmit() { 
-    this.submitted = true; 
-    console.log(this.formFields[0][0] + ' : ' + this.formFields[0][1]);
-    console.log(this.formFields[1][0] + ' : ' + this.formFields[1][1]);
-    this.formResponse = this.formFields;
-    
-
+  this.submitted = true; 
+  console.log(this.formFields[0][0] + ' : ' + this.formFields[0][1]);
+  console.log(this.formFields[1][0] + ' : ' + this.formFields[1][1]);
+  this.formResponse = this.formFields;
   }
 
   }

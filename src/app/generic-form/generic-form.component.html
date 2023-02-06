@@ -1,5 +1,3 @@
-
-
 <app-page-title (titleChanged)="updateTitle($event)" [title]="title"></app-page-title>
 <div class="card">
   <form (ngSubmit)="onSubmit()" #gForm="ngForm"> 
@@ -11,6 +9,4 @@
   </form>
 </div>
 
-<div *ngIf="formResponse != null" class="card">
-  <app-response [responseContent]="formResponse"></app-response>
-</div>
+<app-response [responseContent]="formResponse"></app-response>
