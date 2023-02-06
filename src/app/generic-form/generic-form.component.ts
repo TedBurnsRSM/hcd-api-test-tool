@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router} from '@angular/router';
 import { ContentPage } from '../models/content-page';
 import { GenericForm } from '../models/generic-form.model';
 
@@ -41,9 +41,12 @@ export class GenericFormComponent extends ContentPage implements OnInit {
   
   public formData: FormGroup = new FormGroup({});
 
+  public router: Router;
+
   constructor(private route: ActivatedRoute)  {
     super();
     this.title = "";
+    this.router = new Router();
    }
 
 
@@ -69,6 +72,7 @@ export class GenericFormComponent extends ContentPage implements OnInit {
     console.log(this.formFields[0][0] + ' : ' + this.formFields[0][1]);
     console.log(this.formFields[1][0] + ' : ' + this.formFields[1][1]);
 
+    this.router.navigate(['http:localhost:4200/response'])
   }
 
   }
