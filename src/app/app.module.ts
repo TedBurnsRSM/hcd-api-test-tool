@@ -10,6 +10,7 @@ import { FormsComponent } from './forms/forms.component';
 import { StoreModule } from '@ngrx/store';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { GenericFormComponent } from './generic-form/generic-form.component';
+import { ResponseComponent } from './response/response.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { GenericFormComponent } from './generic-form/generic-form.component';
     NavbarComponent,
     FormsComponent,
     PageTitleComponent,
-    GenericFormComponent
+    GenericFormComponent,
+    ResponseComponent
     ],
   imports: [
     FormsModule,
